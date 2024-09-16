@@ -6,20 +6,64 @@ namespace WeatherSimulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter The input Of Days :");
-            int days = int.Parse(Console.ReadLine());//Enter The Number Of Days to Make the Array number to pass
+            Console.WriteLine("Enter the number of days:");
+            int days = int.Parse(Console.ReadLine()); // Enter the number of days to make the array size
 
-            int[] temprature = new int[days];//Created a Integer Array with the Days on input
-            string[] conditions = { "Sunny", "Rainy", "Snowing", "Cloudy" };//Created The conditions For Weather
-            string[] weatherConditions = new string[days];
+            int[] temperatures = new int[days]; // Created an integer array with the size of days
+            string[] conditions = { "Sunny", "Rainy", "Snowing", "Cloudy" }; // Created the conditions for weather
+            string[] weatherConditions = new string[days]; // Created a string array to store random weather conditions
 
-            for(int i=0; i < days; i++)
+            Random random = new Random(); // Create a single Random object
+
+            for (int i = 0; i < days; i++) // Iterate through days
             {
-                Random random = new Random();
-                temprature[i]=random.Next(-5,35);
-                weatherConditions[i] = conditions[random.Next(conditions.Length)];
+                temperatures[i] = random.Next(-5, 35); // Generate random temperature
+
+                // Determine weather condition based on temperature
+                if (temperatures[i] >= 25)
+                {
+                    weatherConditions[i] = conditions[0]; // Sunny
+                }
+                else if (temperatures[i] >= 15)
+                {
+                    weatherConditions[i] = conditions[3]; // Cloudy
+                }
+                else if (temperatures[i] >= 5)
+                {
+                    weatherConditions[i] = conditions[2]; // Snowing
+                }
+                else
+                {
+                    weatherConditions[i] = conditions[1]; // Rainy
+                }
             }
 
+            // Calculate the sum of temperatures
+            int totalTemperature = 0;
+            foreach (var temp in temperatures)
+            {
+                totalTemperature += temp;
+            }
+
+            double averageTemperature=averageWeather(totalTemperature, temperatures.Length);
+
+            // Display the results
+            Console.WriteLine("\nWeather Report:");
+            for (int i = 0; i < days; i++)
+            {
+                Console.WriteLine($"Day {i + 1}: Temperature = {temperatures[i]}°C, Condition = {weatherConditions[i]}");
+            }
+
+            // Display the average temperature
+            Console.WriteLine($"\nAverage Temperature: {averageTemperature:F2}°C");
+
+            Console.ReadKey();
+        }
+
+        static double averageWeather(int totalTemp, int divider)
+        {
+            double average= totalTemp / divider;
+            return average;
         }
     }
 }

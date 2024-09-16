@@ -12,3 +12,4 @@ C:\Users\User\source\repos\WeatherSimulator\WeatherSimulator\obj\Debug\net8.0\re
 C:\Users\User\source\repos\WeatherSimulator\WeatherSimulator\obj\Debug\net8.0\WeatherSimulator.pdb
 C:\Users\User\source\repos\WeatherSimulator\WeatherSimulator\obj\Debug\net8.0\WeatherSimulator.genruntimeconfig.cache
 C:\Users\User\source\repos\WeatherSimulator\WeatherSimulator\obj\Debug\net8.0\ref\WeatherSimulator.dll
+C:\Users\User\source\repos\WeatherSimulator\WeatherSimulator\obj\Debug\net8.0\WeatherSimulator.sourcelink.json
